@@ -33,4 +33,6 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('delete-post/{post_id}', [PostController::class, 'destroy']);
 
     Route::get('users', [UserController::class, 'index']);
+    Route::get('user/{user_id}', [UserController::class, 'edit']);
+    Route::put('update-user/{user_id}', [UserController::class, 'update']);
 });
