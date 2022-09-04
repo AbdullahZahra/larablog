@@ -23,6 +23,21 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 
+    {{-- Datatable CSS CDN --}}
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+
+    <style>
+        .dataTables_wrapper .dataTables_paginate .paginate_button{
+            padding: 0px !important;
+            margin: 0px !important;
+        }
+
+        div.dataTables_wrapper div.dataTables_length select{
+            width: 50% !important;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -45,14 +60,23 @@
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
 
-    {{-- Summernote CSS Link --}}
+    {{-- Summernote JS Link --}}
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script>
         $(document).ready(function() {
             $("#mySummernote").summernote({
-                height: 250,   //set editable area's height
+                height: 250, //set editable area's height
             });
             $('.dropdown-toggle').dropdown();
+        });
+    </script>
+
+    {{-- Datatables JS CDN --}}
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myDataTable').DataTable();
         });
     </script>
 </body>
