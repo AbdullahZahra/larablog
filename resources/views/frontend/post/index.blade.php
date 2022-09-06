@@ -29,6 +29,11 @@
                             </div>
                         </div>
                     @endforelse
+
+                    {{-- Pagination --}}
+                    <div class="your-paginate mt-4">
+                        {{ $post->links() }}
+                    </div>
                 </div>
             </div>
         </div>

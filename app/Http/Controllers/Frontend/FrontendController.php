@@ -23,7 +23,7 @@ class FrontendController extends Controller
             return redirect('/');
         }
 
-        $post = Post::where('category_id', $category->id)->where('status', '0')->get();
+        $post = Post::where('category_id', $category->id)->where('status', '0')->paginate(10);
         return view('frontend.post.index', compact('post', 'category'));
     }
 }
