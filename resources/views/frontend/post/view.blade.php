@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('title', 'Larablog - ' . $post->meta_title)
+
+@section('meta_description', $post->meta_description)
+
+@section('meta_keyword', $post->meta_keyword)
+
 @section('content')
     <div class="ph-4">
         <div class="container">
