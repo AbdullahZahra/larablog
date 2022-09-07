@@ -11,16 +11,29 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
-                   
+
                     @php
-                        $categories = App\Models\Category::where('navbar_status', '0')->where('status', '0')->get();
+                        $categories = App\Models\Category::where('navbar_status', '0')
+                            ->where('status', '0')
+                            ->get();
                     @endphp
 
                     @foreach ($categories as $cateitem)
                         <div class="nav-item">
-                            <a class="nav-link" href="{{ url('tutorial/'.$cateitem->slug) }}">{{ $cateitem->name }}</a>
+                            <a class="nav-link" href="{{ url('tutorial/' . $cateitem->slug) }}">{{ $cateitem->name }}</a>
                         </div>
                     @endforeach
+
+                    @auth
+                        <li class="nav-item"><a href="/" class="nav-link">{{ auth()->user()->name }}</a></li>
+                        <form action="/logout" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Logout</button>
+                        </form>
+                    @else
+                        <li class="nav-item"><a href="/register" class="nav-link">Register</a></li>
+                        <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+                    @endauth
 
                     {{-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
